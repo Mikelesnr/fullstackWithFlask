@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/css/style.css">
+    <title>This only shows up in the browser tab</title>
+</head>
+
+<body>
+    <h1>I am exited for the half time shows</h1>
+    <p>I can't wait for the next superbowl</p>
+
+    <div>
+        {% block main %}
+        <h1>This only shows on structure.html</h1>
+
+        {% endblock main %}
+    </div>
+
+</body>
+
+</html>
