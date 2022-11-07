@@ -12,8 +12,9 @@ def home():
     else:
         username = request.form['username']
         password = request.form['password']
-        if username == 'Gordon' and password == 'Ramsay':
-            message = model.show_color('Gordon')
+        db_password = model.check_pw(username)
+        if password == db_password:
+            message = model.show_color(username)
             return render_template('football.html', message=message)
         else:
             error_message = 'Hint:He curses a lot'
@@ -23,6 +24,19 @@ def home():
 @app.route('/football', methods=['GET'])
 def football():
     return render_template('football.html')
+
+
+@app.route('/signup', methods=['GET', 'POST'])
+def signup():
+    if request.method == 'GET':
+        message = 'Please signup!!'
+        return render_template('signup.html', message=message)
+    else:
+        username = request.form["username"]
+        password = request.form["password"]
+        favorite_color = request.form["favorite_color"]
+        message = model.signup(username, password, favorite_color)
+        return render_template('signup.html', message=message)
 
 
 if __name__ == '__main__':
