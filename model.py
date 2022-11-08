@@ -47,3 +47,22 @@ def signup(username, password, favorite_color):
     cursor.close()
     connection.close()
     return "You successfully signed up!!!"
+
+
+def check_users():
+    connection = sqlite3.connect('flask_tut.db', check_same_thread=False)
+    cursor = connection.cursor()
+    cursor.execute(
+        """SELECT username FROM users ORDER BY pk DESC;""")
+    db_users = cursor.fetchall()
+    users = []
+
+    for i in range(len(db_users)):
+        person = db_users[i][0]
+        users.append(person)
+
+    connection.commit()
+    cursor.close()
+    connection.close()
+
+    return users
