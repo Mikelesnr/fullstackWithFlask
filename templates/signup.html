@@ -1,20 +1,31 @@
 {% extends "structure.html" %}
 
 {% block main %}
+<main class="form-signin w-100 m-auto">
+    <form action="/signup" method="post">
+        <img class="mb-4" src="static/img/bootstrap-logo.svg" alt="" width="72" height="57">
+        <h1 class="h3 mb-3 fw-normal">{{ message }}</h1>
 
-<h1>Signup here!!!</h1>
-<form action="/signup" method="post">
-    <label for="username">Username</label>
-    <input type="text" name="username" placeholder="username">
-    <br>
-    <label for="password">Password</label>
-    <input type="password" name="password" placeholder="password">
-    <br>
-    <label for="favorite_color">Favorite color</label>
-    <input type="password" name="favorite_color" placeholder="Favorite color">
-    <br>
-    <input type="submit" value="submit">
-</form>
-<h2>{{ message }}</h2>
+        <div class="form-floating">
+            <input type="text" name="username" class="form-control" id="floatingInput" placeholder="username">
+            <label for="floatingInput">username</label>
+        </div>
+        <div class="form-floating">
+            <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password">
+            <label for="floatingPassword">Password</label>
+        </div>
+        <div class="form-floating">
+            <input type="text" name="favorite_color" class="form-control" id="floatingColor" placeholder="Password">
+            <label for="floatingColor">Favorite Color</label>
+        </div>
 
+        <div class="checkbox mb-3">
+            <label>
+                <input type="checkbox" value="remember-me"> Remember me
+            </label>
+        </div>
+        <button class="w-100 btn btn-lg btn-primary" type="submit">Sign up</button>
+        <label for="favorite_color">Favorite color</label>
+    </form>
+</main>
 {% endblock main %}

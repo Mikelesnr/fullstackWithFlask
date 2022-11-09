@@ -1,12 +1,10 @@
 {% extends "structure.html" %}
 
 {% block main %}
-
-<h1>This is the home page</h1>
-<br>
-<a href="/login">login</a>
-<br>
-<p>{{message}}</p>
-<br>
-<a href="/signup">Signup here!!!</a>
+<main class="form-signin w-100 m-auto">
+    <h1>This is the home page</h1>
+    <p><a href="/login">login</a></p>
+    <p>{{message}}</p>
+    <p><a href="/signup">Signup here!!!</a></p>
+</main>
 {% endblock main %}
